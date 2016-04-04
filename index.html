@@ -54,7 +54,7 @@
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'XVyHQqhP5gY',
+          videoId: song.url.match(videoIdRegex)[1],
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -83,59 +83,112 @@
       }
 
 
-      var url = "https://www.youtube.com/watch?v=XVyHQqhP5gY";
+      var songs = {
+        aloneAgain: {
+          url: "https://www.youtube.com/watch?v=XVyHQqhP5gY",
+          timeToLyrics: {
+            "0": ["もー、会えないんだな。", "Guess I won’t ever see you again."],
+            "17": ["嘘みたいだな。", "This can’t be happening."],
+            "21": ["眠り方も忘れたみたい。", "It’s like I’ve forgotten how to sleep as well."],
+            "26": ["いずれにせよ、夢の外だ。", "In any case, this isn’t a dream."],
+            "32": ["君がいないんじゃなぁ。", "If you’re not here."],
+            "37": ["あー、恋しくなる。", "Ah, I need you."],
+            "40": ["苦しくなる。", "I’m hurting."],
+            "43": ["どうにかなる。", "Something’s happening to me."],
+            "46": ["触れない距離、", "The distance that prevents us from touching"],
+            "49": ["積もる月日、", "And the passing days that pile up"],
+            "52": ["それらがいま、二人を離していくところ。", "Are where we’re being separated."],
+            "60": ["悲しみコードは爆音です。", "Grief is the roar of explosions."],
+            "66": ["君の声も聞こえない、届かない。", "I can't even hear your voice, it doesn't reach me."],
+            "75": ["ざわめく風が薫る、るる ―。", "The wind is so noisy, so fragrant... ruru"],
+            "82": ["アローンアゲイン 頼りない世界。", "Alone again, Unreliable world."],
+            "87": ["グルグル、いつまでも回る。", "Round and round, spinning for eternity."],
+            "93": ["うずまく心は七色。", "My swirling heart’s a rainbow."],
+            "98": ["また会えるのかな？", "Will we meet again?"],
+            "102": ["ハロー、ハロー、届いたなら", "Hello, hello, I call, if my words reach you"],
+            "109": ["悪戯にワンダフルワールド。", "Mischievous wonderful world."],
+            "118": ["ねー、四六時中、思い出して名前を呼ぶ。", "Hey, all day I remember, and call out your name. "],
+            "128": ["こだましていく。", "It only keeps on echoing."],
+            "131": ["真昼の月。", "Midday moon."],
+            "134": ["ひとつしかない答えが浮かんでて消えそう。", "A single answer floats about, like it might disappear."],
+            "142": ["切なさモードの残像です。", "A remnant of the painful mode."],
+            "148": ["君の顔も見えない、わからない。", "I can’t even see your face, can’t recognize it."],
+            "157": ["ざわめく風が笑う、ふふ ―。", "The rustling wind laughs, fufu——."],
+            "164": ["スカートの翼を広げて", "Spread those skirt-like wings "],
+            "169": ["ユラユラ、君、夢、幻。", "And slowly sway; you, a dream, an illusion. "],
+            "175": ["うるさい涙が散らかる。", "Annoying tears scatter in disorder"],
+            "181": ["まだ探せるなら、", "If I can still find you"],
+            "185": ["ハロー、ハロー、何処にいるの？", "Hello, hello where are you?"],
+            "202": ["意地悪なワンダフルワールド。", "Cruel, wonderful world"],
+            "212": ["哀愁ナラ今日モ更新終了", "Sorrow, today I'll stop its renewal"],
+            "221": ["感傷ナラ明日モ申請中", "Sentiment, I'll apply for it tomorrow."],
+            "232": ["あー、未来とかは手探りでも、あたらしい日々。", "Ah, even if the future is nothing but fumbling, at least it’ll be a new day."],
+            "242": ["ばかみたいだなー。", "I must look like a fool."],
+            "245": ["涙の向こう、君はなんて僕を叱るんだろう？", "Beyond my tears, what are you saying to scold me?"],
+            "255": ["アローンアゲイン", "Alone again"],
+            "258": ["頼りない世界。", "Unreliable world."],
+            "261": ["グルグル、いつまで回るの？", "Round and round, how long will it spin?"],
+            "266": ["うずまく心は七色。", "My swirling heart’s a rainbow."],
+            "272": ["想い出で間違い探しだ！", "I'll find the mistakes in my memory!"],
+            "278": ["スカートの翼を広げて", "I'll spread skirt-like wings"],
+            "284": ["ヒラヒラ、君、夢、幻。", "flutter; you, a dream, an illusion"],
+            "289": ["うるさい涙が散らかる。", "Annoying tears fall in disorder."],
+            "295": ["まだ探せるかな？ハロー、ハロー、", "If I can still find you, I'll say Hello, hello"],
+            "303": ["何処かにいる君と僕、", "To you and me, somewhere"],
+            "309": ["ワンダフルワールド。", "In this wonderful world."]
+          }
+        },
+        spica: {
+          url: 'https://www.youtube.com/watch?v=j7wWiZpOdE0',
+          timeToLyrics: {
+            "0": ["ふたつある星を　ひとつの名前で呼ぶって たしか君から聞いたな", "I know it was you who told me, that two stars are called by one name"],
+            "51": ["夜を拒むように　たくさんの灯り", "Tokyo is decorated in all different colours"],
+            "57": ["いろんな色　飾る東京", "So many lights to negate the darkness"],
 
-      var timeToLyrics = {
-        "0": ["もー、会えないんだな。", "Guess I won’t ever see you again."],
-        "17": ["嘘みたいだな。", "This can’t be happening."],
-        "21": ["眠り方も忘れたみたい。", "It’s like I’ve forgotten how to sleep as well."],
-        "26": ["いずれにせよ、夢の外だ。", "In any case, this isn’t a dream."],
-        "32": ["君がいないんじゃなぁ。", "If you’re not here."],
-        "37": ["あー、恋しくなる。", "Ah, I need you."],
-        "40": ["苦しくなる。", "I’m hurting."],
-        "43": ["どうにかなる。", "Something’s happening to me."],
-        "46": ["触れない距離、", "The distance that prevents us from touching"],
-        "49": ["積もる月日、", "And the passing days that pile up"],
-        "52": ["それらがいま、二人を離していくところ。", "Are where we’re being separated."],
-        "60": ["悲しみコードは爆音です。", "Grief is the roar of explosions."],
-        "66": ["君の声も聞こえない、届かない。", "I can't even hear your voice, it doesn't reach me."],
-        "75": ["ざわめく風が薫る、るる ―。", "The wind is so noisy, so fragrant... ruru"],
-        "82": ["アローンアゲイン 頼りない世界。", "Alone again, Unreliable world."],
-        "87": ["グルグル、いつまでも回る。", "Round and round, spinning for eternity."],
-        "93": ["うずまく心は七色。", "My swirling heart’s a rainbow."],
-        "98": ["また会えるのかな？", "Will we meet again?"],
-        "102": ["ハロー、ハロー、届いたなら", "Hello, hello, I call, if my words reach you"],
-        "109": ["悪戯にワンダフルワールド。", "Mischievous wonderful world."],
-        "118": ["ねー、四六時中、思い出して名前を呼ぶ。", "Hey, all day I remember, and call out your name. "],
-        "128": ["こだましていく。", "It only keeps on echoing."],
-        "131": ["真昼の月。", "Midday moon."],
-        "134": ["ひとつしかない答えが浮かんでて消えそう。", "A single answer floats about, like it might disappear."],
-        "142": ["切なさモードの残像です。", "A remnant of the painful mode."],
-        "148": ["君の顔も見えない、わからない。", "I can’t even see your face, can’t recognize it."],
-        "157": ["ざわめく風が笑う、ふふ ―。", "The rustling wind laughs, fufu——."],
-        "164": ["スカートの翼を広げて", "Spread those skirt-like wings "],
-        "169": ["ユラユラ、君、夢、幻。", "And slowly sway; you, a dream, an illusion. "],
-        "175": ["うるさい涙が散らかる。", "Annoying tears scatter in disorder"],
-        "181": ["まだ探せるなら、", "If I can still find you"],
-        "185": ["ハロー、ハロー、何処にいるの？", "Hello, hello where are you?"],
-        "202": ["意地悪なワンダフルワールド。", "Cruel, wonderful world"],
-        "212": ["哀愁ナラ今日モ更新終了", "Sorrow, today I'll stop its renewal"],
-        "221": ["感傷ナラ明日モ申請中", "Sentiment, I'll apply for it tomorrow."],
-        "232": ["あー、未来とかは手探りでも、あたらしい日々。", "Ah, even if the future is nothing but fumbling, at least it’ll be a new day."],
-        "242": ["ばかみたいだなー。", "I must look like a fool."],
-        "245": ["涙の向こう、君はなんて僕を叱るんだろう？", "Beyond my tears, what are you saying to scold me?"],
-        "255": ["アローンアゲイン", "Alone again"],
-        "258": ["頼りない世界。", "Unreliable world."],
-        "261": ["グルグル、いつまで回るの？", "Round and round, how long will it spin?"],
-        "266": ["うずまく心は七色。", "My swirling heart’s a rainbow."],
-        "272": ["想い出で間違い探しだ！", "I'll find the mistakes in my memory!"],
-        "278": ["スカートの翼を広げて", "I'll spread skirt-like wings"],
-        "284": ["ヒラヒラ、君、夢、幻。", "flutter; you, a dream, an illusion"],
-        "289": ["うるさい涙が散らかる。", "Annoying tears fall in disorder."],
-        "295": ["まだ探せるかな？ハロー、ハロー、", "If I can still find you, I'll say Hello, hello"],
-        "303": ["何処かにいる君と僕、", "To you and me, somewhere"],
-        "309": ["ワンダフルワールド。", "In this wonderful world."]
+            "62": ["夜空探した", "I searched for the night sky"],
+            "64": ["あれ、どれだったっけな?", "How long did it take me?"],
+            "69": ["何もかも全部　君に向かうから", "Everything I do is all for you"],
+
+            "75": ["ほら　星の光で 離れてしまった手と手が繋がるなら", "See, if the light of the stars reunites the two hands that were parted"],
+            "87": ["覚えた星の名前が 届かなくなった未来を示すのなら", "If the name of the star I’ve just remembered leads me to a future I’d lost the way to"],
+            "100": ["ずっと　となり同士 ふたりぼっち　白いスピカ", "We’ll be side by side forever, just the two of us, a white Spica"],
+
+            "122": ["割りきれない恋　分数で解いた", "We came undone, unable to work out the fraction of our love"],
+            "129": ["答えは誰かと同じでいい", "It’s OK to have the same answer as someone else"],
+            "135": ["月見坂上り　宇宙で道草", "Watching the moon, climbing a hill, wandering in space"],
+            "141": ["唄うよ　猫の鳴き真似で", "I sing like a cat crying"],
+
+            "146": ["夜が明けるまで", "How long will it be"],
+            "149": ["あと、どれくらいだろう?", "Until the morning comes?"],
+            "152": ["嘘にならないで、消えていかないで", "Don’t lie, don’t go away"],
+
+            "160": ["まだ　星の光が 忘れそうになった想いを繋げるなら", "If the light of the stars still connects me to a love I’d forgotten"],
+            "171": ["覚えた星の名前が 隠れてしまった未来を照らすのなら", "If the name of the star I’ve just remembered illuminates a future that was hidden"],
+            "184": ["きっと　となり同士　ふたりぼっち　白いスピカ", "We’ll surely be side by side, just the two of us, a white Spica"],
+
+            "205": ["ほら　星の光で 離れてしまった手と手が繋がるなら", "See, if the light of the stars reunites the two hands that were parted"],
+            "218": ["覚えた星の名前が 届かなくなった未来を示すのなら", "If the name of the star I’ve just remembered leads me to a future I’d lost the way to"],
+            "230": ["このまま　星の光が 忘れそうになった想いを繋げるなら", "If the light of the stars still connects me to a love I’d forgotten"],
+            "242": ["覚えた星の名前が 隠れてしまった未来を照らすのなら", "If the name of the star I’ve just remembered illuminates a future that was hidden"],
+            "255": ["ずっと　となり同士　ふたりぼっち　白いスピカ", "We’ll be side by side forever, just the two of us, a white Spica"],
+
+            "266": ["やさしい、やさしい、 声が聴こえた。", "I heard a gentle, gentle voice"],
+            "273": ["悲しい、悲しい、涙堕ちた。", "Sad, sad tears fell"],
+            "279": ["恋しい、恋しい、心には", "I miss, I miss your heart"],
+            "283": ["もう、会えないな。", "But I’ll never see you again"],
+            "287": ["もう、会いたいな―――。", "I’ll never see you again"],
+
+            "315": ["ここから見えるのは　とても遠い僕ら", "We look really far apart from here"],
+            "322": ["過去にも未来にも見えた", "I could see you in my past and in my future"],
+          }
+        }
       };
+
+      var songName = 'aloneAgain';
+      var song = songs[songName];
+      var timeToLyrics = song.timeToLyrics;
+
+      var videoIdRegex = /youtube\.com\/watch\?v=(\w+)/;
 
       var englishLyricsEl = document.getElementById('english-lyrics');
       var japaneseLyricsEl = document.getElementById('japanese-lyrics');
